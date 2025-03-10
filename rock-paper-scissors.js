@@ -41,3 +41,36 @@ function playRound(humanChoice, computerChoice) {
     return `You lose! ${computerChoice} beats ${humanChoice}`;
   }
 }
+
+function playGame() {
+  let round = 1;
+
+  while (round <= 5) {
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+
+    console.log(`Round ${round}`);
+    console.log(
+      `Player choice: ${humanSelection}, Computer choice: ${computerSelection}`
+    );
+
+    let result = playRound(humanSelection, computerSelection);
+    console.log(result);
+    console.log(`Scores - Player: ${humanScore}, Computer: ${computerScore}`);
+
+    round++;
+  }
+
+  console.log("\nFinal Scores:");
+  console.log(`Player: ${humanScore}, Computer: ${computerScore}`);
+
+  if (humanScore > computerScore) {
+    console.log("🎉 You won the game!");
+  } else if (humanScore < computerScore) {
+    console.log("💀 You lost the game!");
+  } else {
+    console.log("😐 It's a tie!");
+  }
+}
+
+playGame();
