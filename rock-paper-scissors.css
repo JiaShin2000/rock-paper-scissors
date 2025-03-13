@@ -3,6 +3,7 @@
   background-color: black;
   color: white;
   text-align: center;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 html,
@@ -37,6 +38,7 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 15px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .buttons button {
