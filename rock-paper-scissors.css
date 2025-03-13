@@ -85,32 +85,20 @@ h1 {
   background: linear-gradient(to right, #f4c430 0%, #ecd385 100%);
 }
 
-.result {
-  display: block;
-  font-weight: bold;
-  font-size: 1.2em;
-  text-align: center;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* ✅ Dark transparent background */
+.result-parent {
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(5px); /* ✅ Slight blur effect */
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.overlay.active {
-  visibility: visible;
-  opacity: 1;
+.result {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .end-game-box {
@@ -127,6 +115,7 @@ h1 {
 .end-game-box p {
   background: none;
   color: black;
+  margin: 0.4em;
 }
 
 footer {
