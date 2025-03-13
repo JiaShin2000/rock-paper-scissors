@@ -1,0 +1,154 @@
+* {
+  font-family: Inter;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  flex: 1;
+}
+
+.header {
+  text-align: center; /* ✅ Centers inline-block elements */
+}
+
+h1 {
+  background: #48bfe3;
+  background: linear-gradient(to left, #48bfe3 0%, #80ffdb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  display: inline-block;
+  font-size: 3.5rem;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.buttons button {
+  background-color: white;
+  font-size: 5rem;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background: linear-gradient(to left, #48bfe3 0%, #80ffdb 100%);
+  cursor: pointer;
+  border: 5px solid white;
+}
+
+.buttons button:hover {
+  background: #80ffdb;
+}
+
+.buttons button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #ccc;
+  color: #666;
+  border: 1px solid #aaa;
+}
+
+.instruction {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.restart-button {
+  background: #ffdd57; /* Bright yellow */
+  color: black;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: 8px 0;
+}
+
+.restart-button:hover {
+  background: linear-gradient(to right, #f4c430 0%, #ecd385 100%);
+}
+
+.result {
+  display: block;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* ✅ Dark transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px); /* ✅ Slight blur effect */
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.end-game-box {
+  background: linear-gradient(to left, #48bfe3 0%, #22ecb3 100%);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  border: 5px solid #f4c430;
+}
+
+.end-game-box h2,
+.end-game-box p {
+  background: none;
+  color: black;
+}
+
+footer {
+  background-color: white;
+  text-align: center;
+  padding: 10px;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+footer a {
+  text-decoration: underline;
+  background-color: white;
+  color: black;
+}
+
+@media (max-width: 480px) {
+  .buttons button {
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 4rem;
+    padding: 0;
+  }
+}

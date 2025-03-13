@@ -2,8 +2,6 @@ const rockBtn = document.querySelector(".rock");
 const paperBtn = document.querySelector(".paper");
 const scissorsBtn = document.querySelector(".scissors");
 const result = document.querySelector(".result");
-const scoreBoard = document.createElement("p");
-result.append(scoreBoard);
 
 let humanScore = 0;
 let computerScore = 0;
@@ -37,14 +35,13 @@ function playRound(humanChoice, computerChoice) {
     (humanChoice === "scissors" && computerChoice === "paper")
   ) {
     humanScore++;
-    message = `You win! ${humanChoice} beats ${computerChoice}`;
+    message = `You win! ${humanChoice.toUpperCase()} beats ${computerChoice.toUpperCase()}`;
   } else {
     computerScore++;
-    message = `You lose! ${computerChoice} beats ${humanChoice}`;
+    message = `You lose! ${computerChoice.toUpperCase()} beats ${humanChoice.toUpperCase()}`;
   }
 
-  scoreBoard.innerHTML = `Score - Player: ${humanScore} | Computer: ${computerScore}`;
-  result.innerHTML = `Player: ${humanScore} | Computer: ${computerScore}\n${message}`;
+  result.innerHTML = `Player: ${humanScore} | Computer: ${computerScore}\n<p>${message}</p>`;
 
   //Check if anyone reached 5 points
   if (humanScore === 5 || computerScore === 5) {
@@ -58,7 +55,7 @@ function announceWinner() {
   let finalMessage =
     humanScore === 5 ? "🎉 You won the game!" : "💀 You lost the game!";
 
-  result.innerHTML = `<h3>Final Scores</h3>
+  result.innerHTML = `<h2>Final Scores</h2>
                       <p>Player: ${humanScore} | Computer: ${computerScore}</p>
                       <p>${finalMessage}</p>`;
 
@@ -68,15 +65,18 @@ function announceWinner() {
 
   const restartBtn = document.createElement("button");
   restartBtn.textContent = "Restart Game";
+  restartBtn.classList.add("restart-button");
+  result.classList.add("end-game-box");
   restartBtn.addEventListener("click", resetGame);
   result.appendChild(restartBtn);
 }
 
 function resetGame() {
+  document.querySelector(".result").classList.remove("end-game-box");
+
   humanScore = 0;
   computerScore = 0;
   gameOver = false;
-  scoreBoard.innerHTML = `Score - Player: ${humanScore} | Computer: ${computerScore}`;
   result.innerHTML = "";
 
   rockBtn.disabled = false;
